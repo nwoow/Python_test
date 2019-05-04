@@ -11,13 +11,13 @@ def get_symbol_data(parameter_list):
     if response:
         response.content.decode("utf-8")
         js = response.json()
-        p1 = "ww"
-        p2 = 33
-        p3 = 44
-        p4 = 44
-        p5 = 00
-        p6 = 66
-        p7 = 99
+        p1 = js['symbol']
+        p2 = js['delayedPrice']
+        p3 = js['high']
+        p4 = js['low']
+        p5 = js['delayedSize']
+        p6 = js['delayedPriceTime']
+        p7 = js['processedTime']
         mysql_insert(p1,p2,p3,p4,p5,p6,p7)
         # mysql_insert(js['symbol'],js['delayedPrice'],js['high'],js['low'],js['delayedSize'],js['delayedPriceTime'],js['processedTime'])
         print("error")
