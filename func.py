@@ -107,7 +107,8 @@ def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # Open database connection
 
     db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
-
+    print("error")
+    print(p1)
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
 
@@ -136,8 +137,7 @@ def mysql_insert_new(p1,p2,p3):
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
-    print("error")
-    print(p1)
+
 
     # Prepare SQL query to INSERT a record into the database.
     sql = """INSERT INTO Stock1(delayedPrice, symbol, time)
