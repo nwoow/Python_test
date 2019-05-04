@@ -90,6 +90,7 @@ def loop_single_symbol(p1):
     df["delayedPrice"] = delayedPrice
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
+    mysql_insert_new(delayedPrice,symbol,get_nyc_time())
     return df 
     time.sleep(4)
 
@@ -118,3 +119,29 @@ def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # disconnect from server
     # cursor.execute(sql)
     db.close()
+
+def mysql_insert_new(p1,p2,p3):
+    # Open database connection
+    db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
+
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # Prepare SQL query to INSERT a record into the database.
+    sql = """INSERT INTO Stock1(delayedPrice, symbol, time)
+    VALUES (%s, %s, %s)"""
+    values = (p1,p2,p3)
+    
+    try:
+    # Execute the SQL command
+    #    cursor.execute(sql)
+        cursor.execute(sql, values)
+        # Commit your changes in the database
+        db.commit()
+    except:
+    # Rollback in case there is any error
+        db.rollback()
+
+    # disconnect from server
+    # cursor.execute(sql)
+    db.close()   
