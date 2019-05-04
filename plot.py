@@ -38,12 +38,11 @@ df2['percTick']= df2['delayedPrice'].pct_change()>=0.02
 df2['percTick'].replace('False',np.NaN,inplace=True)
 df2.loc[df2['percTick'] == False,'percTick'] = np.nan
 # df2.to_excel('dataStock.xlsx')
-p1 = "ww"
-p2 = 33
-p3 = 44
-p4 = 44
-p5 = 00
-p6 = 66
-p7 = 99
-
-mysql_insert(p1,p2,p3,p4,p5,p6,p7)
+# p1 = "ww"
+# p2 = 33
+# p3 = 44
+# p4 = 44
+# p5 = 00
+# p6 = 66
+# p7 = 99
+# mysql_insert(p1,p2,p3,p4,p5,p6,p7)
