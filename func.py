@@ -90,6 +90,7 @@ def loop_single_symbol(p1):
     df["delayedPrice"] = delayedPrice
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
+    mysql_insert_new(delayedPrice,symbol,get_nyc_time())
     return df 
     time.sleep(4)
 
@@ -126,6 +127,7 @@ def mysql_insert_new(p1,p2,p3):
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
     print("error")
+    print(p1)
 
     # Prepare SQL query to INSERT a record into the database.
     sql = """INSERT INTO Stock1(delayedPrice, symbol, time)
