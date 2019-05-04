@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import json
 import datetime, pytz
+import pymysql
 def get_symbol_data(parameter_list):
     u = parameter_list   
     p = "https://api.iextrading.com/1.0/stock/"+ u +"/delayed-quote"
@@ -94,6 +95,7 @@ def loop_single_symbol(p1):
 
  def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
         # Open database connection
+    # Open database connection
     db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 
     # prepare a cursor object using cursor() method
@@ -101,10 +103,13 @@ def loop_single_symbol(p1):
 
     # Prepare SQL query to INSERT a record into the database.
     sql = """INSERT INTO Stock(symbol,delayedPrice, high, low, delayedSize,delayedPriceTime,processedTime)
-    VALUES ('Mac', 34, 20, 3434, 2000,34343,4343)"""
+    VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+    values = (p1,p2,p3,p4,p5,p6,p7)
+    
     try:
     # Execute the SQL command
-    cursor.execute(sql)
+    #    cursor.execute(sql)
+    cursor.execute(sql, values)
     # Commit your changes in the database
     db.commit()
     except:
