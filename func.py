@@ -21,13 +21,13 @@ def get_symbol_data(parameter_list):
         mysql_insert(p1,p2,p3,p4,p5,p6,p7)
         # mysql_insert(js['symbol'],js['delayedPrice'],js['high'],js['low'],js['delayedSize'],js['delayedPriceTime'],js['processedTime'])
         print("error")
-        print(js['symbol'])
-        print(js['delayedPrice'])
-        print(js['high'])
-        print(js['low'])
-        print(js['delayedSize'])
-        print(js['delayedPriceTime'])
-        print(js['processedTime'])
+        print(p1)
+        print(p2)
+        print(p3)
+        print(p4)
+        print(p5)
+        print(p6)
+        print(p7)
         return js
     else:
         return False
