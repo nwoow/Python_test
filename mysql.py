@@ -21,10 +21,10 @@ try:
    # Execute the SQL command
     cursor.execute(add_stock, data_employee)
    # Commit your changes in the database
-   db.commit()
+    db.commit()
 except:
    # Rollback in case there is any error
-   db.rollback()
+    db.rollback()
 
 # disconnect from server
 db.close()
