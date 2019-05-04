@@ -9,7 +9,7 @@ db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 cursor = db.cursor()
 
 # Drop table if it already exist using execute() method.
-cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+# cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
 
 # Create table as per requirement
 sql = """CREATE TABLE Stock (
