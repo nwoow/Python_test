@@ -126,7 +126,7 @@ def mysql_insert_new(p1,p2,p3):
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
-    print(p1)
+    print("error")
 
     # Prepare SQL query to INSERT a record into the database.
     sql = """INSERT INTO Stock1(delayedPrice, symbol, time)
