@@ -108,12 +108,12 @@ def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     try:
     # Execute the SQL command
     #    cursor.execute(sql)
-    cursor.execute(sql, values)
-    # Commit your changes in the database
-    db.commit()
+        cursor.execute(sql, values)
+        # Commit your changes in the database
+        db.commit()
     except:
     # Rollback in case there is any error
-    db.rollback()
+        db.rollback()
 
     # disconnect from server
     # cursor.execute(sql)
