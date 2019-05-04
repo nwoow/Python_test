@@ -18,12 +18,9 @@ for j in range(length):
     u = data[j]
     h = get_symbol_data(u)
     if h:
-        print(j)
         df_of_single_symbol = loop_single_symbol(u)
-        print(df_of_single_symbol)
         du = df_of_single_symbol
         df = pd.concat([df, du], axis=0).reset_index(drop=True)    
-print(df)
 df.to_excel("output.xlsx")
 
 
