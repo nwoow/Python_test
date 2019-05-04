@@ -25,6 +25,14 @@ while i<50 :
         d[j] = data[j]
         u = data[j]
         js = get_symbol_data(u)
+        p1 = js['symbol']
+        p2 = js['delayedPrice']
+        p3 = js['high']
+        p4 = js['low']
+        p5 = js['delayedSize']
+        p6 = js['delayedPriceTime']
+        p7 = js['processedTime']
+        mysql_insert(p1,p2,p3,p4,p5,p6,p7)
         df = pd.DataFrame(js,index=[ind])
         df1 = df1.append(df)
         ind+=1
