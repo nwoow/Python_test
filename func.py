@@ -80,7 +80,7 @@ def loop_single_symbol(p1):
     i = 0
     delayedPrice = []
     symbol = [] 
-    while i<5 :
+    while i<50 :
         print(p1)
         h = get_symbol_data(p1)
         delayedPrice.append(h['delayedPrice']) 
@@ -92,7 +92,7 @@ def loop_single_symbol(p1):
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
     return df 
-    time.sleep(4)
+    time.sleep(300)
 
 def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # Open database connection

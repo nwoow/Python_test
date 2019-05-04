@@ -23,7 +23,6 @@ for j in range(length):
         df_of_single_symbol = loop_single_symbol(u)
         du = df_of_single_symbol
         df = pd.concat([df, du], axis=0).reset_index(drop=True)
-        # mysql_insert_new(delayedPrice,symbol,get_nyc_time())
     
 df.to_excel("output.xlsx")
 
