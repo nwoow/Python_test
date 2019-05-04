@@ -8,12 +8,20 @@ db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
-# execute SQL query using execute() method.
-cursor.execute("SELECT VERSION()")
+# Drop table if it already exist using execute() method.
+cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
 
-# Fetch a single row using fetchone() method.
-data = cursor.fetchone()
-print ("Database version : %s " % data)
+# Create table as per requirement
+sql = """CREATE TABLE Stock (
+   symbol  CHAR(20) NOT NULL,
+   delayedPrice  FLOAT,
+   high FLOAT,  
+   low FLOAT,
+   delayedSize INT,
+   delayedPriceTime INT,
+   processedTime INT )"""
+
+cursor.execute(sql)
 
 # disconnect from server
 db.close()
