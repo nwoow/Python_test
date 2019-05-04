@@ -4,6 +4,8 @@ import time
 import json
 import datetime, pytz
 import pymysql
+import xlrd
+
 def get_symbol_data(parameter_list):
     u = parameter_list   
     p = "https://api.iextrading.com/1.0/stock/"+ u +"/delayed-quote"
@@ -113,7 +115,9 @@ def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     cursor = db.cursor()
 
     # Prepare SQL query to INSERT a record into the database.
-    sql = """INSERT INTO Stock(symbol,delayedPrice, high, low, delayedSize,delayedPriceTime,processedTime)
+    # sql = """INSERT INTO Stock(symbol,delayedPrice, high, low, delayedSize,delayedPriceTime,processedTime)
+    # VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+    sql = """INSERT INTO Stock(delayedPrice,delayedPriceTime, delayedSize, high, low,processedTime,symbol)
     VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     values = (p1,p2,p3,p4,p5,p6,p7)
     
@@ -156,4 +160,21 @@ def mysql_insert_new(p1,p2,p3):
 
     # disconnect from server
     # cursor.execute(sql)
-    db.close()   
+    db.close()
+def import_sql():
+    loc = ("dataStock.xls")   
+    wb = xlrd.open_workbook(loc) 
+    sheet = wb.sheet_by_index(0) 
+    sheet.cell_value(0, 0) 
+    for i in range(sheet.nrows): 
+        # print(sheet.cell_value(i, 0))
+        p1 = sheet.cell_value(i, 1)
+        p2 = sheet.cell_value(i, 2)
+        p3 = sheet.cell_value(i, 3)
+        p4 = sheet.cell_value(i, 4)
+        p5 = sheet.cell_value(i, 5)
+        p6 = sheet.cell_value(i, 6)
+        p7 = sheet.cell_value(i, 7)
+        mysql_insert(p1,p2,p3,p4,p5,p6,p7)
+
+    
