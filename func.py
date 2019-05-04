@@ -91,12 +91,13 @@ def loop_single_symbol(p1):
         symbol.append(h['symbol'])
         mysql_insert_new(h['delayedPrice'],h['symbol'],get_nyc_time())
         i+=1
+        time.sleep(300)
     df = pd.DataFrame([], columns = []) 
     df["delayedPrice"] = delayedPrice
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
     return df 
-    time.sleep(300)
+    
 
 def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # Open database connection
