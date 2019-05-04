@@ -93,8 +93,7 @@ def loop_single_symbol(p1):
     return df 
     time.sleep(4)
 
- def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
-        # Open database connection
+def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # Open database connection
     db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 
