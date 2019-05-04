@@ -16,7 +16,7 @@ values = ('Mac', 34, 20, 3434, 2000,34343,4343)
 try:
    # Execute the SQL command
 #    cursor.execute(sql)
-   cursor.execute(query, values)
+   cursor.execute(sql, values)
    # Commit your changes in the database
    db.commit()
 except:
