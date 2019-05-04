@@ -3,7 +3,7 @@
 import pymysql
 
 # Open database connection
-db = pymysql.connect("localhost","root","root","wordpress" )
+db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
