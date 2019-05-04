@@ -10,10 +10,13 @@ cursor = db.cursor()
 
 # Prepare SQL query to INSERT a record into the database.
 sql = """INSERT INTO Stock(symbol,delayedPrice, high, low, delayedSize,delayedPriceTime,processedTime)
-   VALUES ('Mac', 34, 20, 3434, 2000,34343,4343)"""
+   VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+values = ('Mac', 34, 20, 3434, 2000,34343,4343)
+   
 try:
    # Execute the SQL command
-   cursor.execute(sql)
+#    cursor.execute(sql)
+   cursor.execute(query, values)
    # Commit your changes in the database
    db.commit()
 except:
