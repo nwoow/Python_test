@@ -8,6 +8,7 @@ from func import get_symbol_data
 from func import symbol_list
 from func import get_nyc_time
 from func import loop_single_symbol
+from func import mysql_insert
 from matplotlib import pyplot as plt
 import datetime
 # i = 0
