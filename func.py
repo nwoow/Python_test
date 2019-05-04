@@ -85,12 +85,12 @@ def loop_single_symbol(p1):
         h = get_symbol_data(p1)
         delayedPrice.append(h['delayedPrice']) 
         symbol.append(h['symbol'])
+        mysql_insert_new(h['delayedPrice'],h['symbol'],get_nyc_time())
         i+=1
     df = pd.DataFrame([], columns = []) 
     df["delayedPrice"] = delayedPrice
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
-    mysql_insert_new(delayedPrice,symbol,get_nyc_time())
     return df 
     time.sleep(4)
 
