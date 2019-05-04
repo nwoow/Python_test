@@ -16,7 +16,7 @@ cursor = db.cursor()
 add_stock = ("INSERT INTO STOCK "
                "(symbol,delayedPrice, high, low, delayedSize,delayedPriceTime,processedTime) "
                "VALUES (%s, %s, %s, %s, %s, %s, %s)")
- data_employee = ('Geert', 123, 123,3232, 23232,3434,34343)              
+data_employee = ('Geert', 123, 123,3232, 23232,3434,34343)              
 try:
    # Execute the SQL command
     cursor.execute(add_stock, data_employee)
