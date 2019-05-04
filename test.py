@@ -10,6 +10,8 @@ from func import get_nyc_time
 from func import loop_single_symbol
 from func import loop_single_symbol
 from matplotlib import pyplot as plt
+from func import mysql_insert_new
+
 length = len(symbol_list())
 data = symbol_list()
 data_frame_array = []
@@ -20,7 +22,10 @@ for j in range(length):
     if h:
         df_of_single_symbol = loop_single_symbol(u)
         du = df_of_single_symbol
-        df = pd.concat([df, du], axis=0).reset_index(drop=True)    
+        df = pd.concat([df, du], axis=0).reset_index(drop=True)
+        print(du)
+        # mysql_insert_new(delayedPrice,symbol,get_nyc_time())
+    
 df.to_excel("output.xlsx")
 
 

@@ -90,9 +90,6 @@ def loop_single_symbol(p1):
     df["delayedPrice"] = delayedPrice
     df["symbol"] = symbol
     df["time"] = get_nyc_time()
-    mysql_insert_new(delayedPrice,symbol,get_nyc_time())
-    print(delayedPrice)
-    print(symbol)
     return df 
     time.sleep(4)
 
