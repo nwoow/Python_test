@@ -12,6 +12,9 @@ def get_symbol_data(parameter_list):
         response.content.decode("utf-8")
         js = response.json()
         mysql_insert(js['symbol'],js['delayedPrice'],js['high'],js['low'],js['delayedSize'],js['delayedPriceTime'],js['processedTime'])
+        print("error")
+        print(js['delayedPrice'])
+        print(js['high'])
         return js
     else:
         return False
@@ -97,6 +100,7 @@ def loop_single_symbol(p1):
 
 def mysql_insert(p1,p2,p3,p4,p5,p6,p7):
     # Open database connection
+
     db = pymysql.connect("localhost","root","DxyAY1JLS9c$q@WKoLG!8rs","pytest" )
 
     # prepare a cursor object using cursor() method
