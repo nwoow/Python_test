@@ -44,7 +44,8 @@ while i<50 :
     time.sleep(300)
 df2['processedTime']= df2['processedTime'].apply(lambda x:datetime.datetime.fromtimestamp(x/1000.0))
 df2 = df2.set_index(df2.processedTime)
-df2['percTick']= df2['delayedPrice'].pct_change()>=0.02  
+df2['percTick']= df2.groupby(['symbol'])['delayedPrice'].pct_change()>=0.02
 df2['percTick'].replace('False',np.NaN,inplace=True)
 df2.loc[df2['percTick'] == False,'percTick'] = np.nan
+
 # import_sql()
