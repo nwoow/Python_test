@@ -21,13 +21,13 @@ def index(request):
 def json(request):
     qs = Stock.objects.all()
     df = read_frame(qs)
-    # df2 = df.groupby(['symbol'])
+    df2 = df.groupby(['symbol'])
     # d1 = df2['symbol']
     
     context = {
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': df.to_dict()})
+    return JsonResponse({'foo': df2.to_dict()})
 
     # return HttpResponse(template.render(context, request))    
