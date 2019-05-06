@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.http import JsonResponse
 # Create your views here.
+import pandas as pd
 from .models import Stock
 from django_pandas.io import read_frame
 
