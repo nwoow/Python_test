@@ -22,7 +22,7 @@ def index(request):
 def json(request):
     qs = Stock.objects.all()
     df = read_frame(qs)
-    df2 = df.groupby(['symbol']).plot(kind='line',x="processedTime", y="delayedPrice")
+    df2 = df.groupby(['symbol'])
     context = {
         'latest_question_list': "error",  
     }
