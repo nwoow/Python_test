@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.http import JsonResponse
 # Create your views here.
 from .models import Stock
 from django_pandas.io import read_frame
@@ -22,5 +23,6 @@ def json(request):
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
+    return JsonResponse({'foo':'bar'})
 
-    return HttpResponse(template.render(context, request))    
+    # return HttpResponse(template.render(context, request))    
