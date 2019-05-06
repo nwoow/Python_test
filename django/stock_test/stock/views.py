@@ -22,11 +22,12 @@ def json(request):
     qs = Stock.objects.all()
     df = read_frame(qs)
     df2 = df.groupby(['symbol'])
+    d1 = df2['symbol']
     
     context = {
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': qs})
+    return JsonResponse({'foo': d1})
 
     # return HttpResponse(template.render(context, request))    
