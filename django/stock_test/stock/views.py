@@ -6,7 +6,7 @@ from django.http import JsonResponse
 import pandas as pd
 from .models import Stock
 from django_pandas.io import read_frame
-
+import jsons
 
 def index(request):
     latest_question_list = Stock.objects.all()
@@ -23,10 +23,11 @@ def json(request):
     qs = Stock.objects.all()
     df = read_frame(qs)
     df2 = df.groupby(['symbol'])
+    a_dict = jsons.dump(df2)
     context = {
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': df2})
+    return JsonResponse({'foo': a_dict})
 
     # return HttpResponse(template.render(context, request))    
