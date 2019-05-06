@@ -27,6 +27,6 @@ def json(request):
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse(df2)
+    return JsonResponse({df2})
 
     # return HttpResponse(template.render(context, request))    
