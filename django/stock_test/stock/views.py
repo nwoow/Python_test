@@ -21,11 +21,11 @@ def index(request):
     return HttpResponse(template.render(context, request))
 def json(request):
     qs = Stock.objects.all()
-    df = qs.to_dataframe(fieldnames=['symbol', 'delayedprice', 'high'])
+    # df = qs.to_dataframe(fieldnames=['symbol', 'delayedprice', 'high'])
     context = {
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': df})
+    return JsonResponse({'foo': qs})
 
     # return HttpResponse(template.render(context, request))    
