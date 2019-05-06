@@ -16,3 +16,11 @@ def index(request):
         'df': df,
     }
     return HttpResponse(template.render(context, request))
+def json(parameter_list):
+        context = {
+        'latest_question_list': "error",
+       
+    }
+     template = loader.get_template('stock/json.html')
+
+    return HttpResponse(template.render(context, request))    
