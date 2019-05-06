@@ -6,7 +6,6 @@ from django.http import JsonResponse
 import pandas as pd
 from .models import Stock
 from django_pandas.io import read_frame
-import jsons
 
 def index(request):
     latest_question_list = Stock.objects.all()
