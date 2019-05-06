@@ -21,6 +21,6 @@ def json(parameter_list):
         'latest_question_list': "error",
        
     }
-     template = loader.get_template('stock/json.html')
+    template = loader.get_template('stock/json.html')
 
     return HttpResponse(template.render(context, request))    
