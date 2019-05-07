@@ -24,11 +24,12 @@ def json(request):
     df2 = df.groupby(['symbol'])
     # d1 = df2['symbol']
     d = ["hhh","hhhh","kkkk"]
+    d1 = df2.to_dict() 
     
     context = {
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': d})
+    return JsonResponse({'foo': d1})
 
     # return HttpResponse(template.render(context, request))    
