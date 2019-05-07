@@ -29,6 +29,6 @@ def json(request):
         'latest_question_list': "error",  
     }
     template = loader.get_template('stock/json.html')
-    return JsonResponse({'foo': DeprecationWarning})
+    return JsonResponse({'foo': d})
 
     # return HttpResponse(template.render(context, request))    
